@@ -4,8 +4,6 @@ local S = minetest.get_translator(modname)
 local schem_path = modpath.."/schems/"
 local make_schem = smgv.schematic_entry_maker(schem_path)
 
---[[
-
 --- Nore ---------------------------------------------
 
 local nore_schems = {
@@ -29,9 +27,9 @@ make_schem("allmende_3_90",   3, -2),
 smgv.make_settlement(
     "nore", "town",
     {
-        ["default:stonebrick"]  = smgv.replacements_stone_wall,
-        ["default:wood"]        = smgv.replacements_wood_wall,
-        ["wool:grey"]           = {"wool:grey", "wool:white", "wool:dark_grey", "wool:cyan", "wool:pink"},
+        ["default:stonebrick"] = smgv.replacements_stone_wall,
+        ["default:wood"]       = smgv.replacements_wood_wall,
+        ["wool:grey"]        = {"wool:grey", "wool:white", "wool:dark_grey", "wool:cyan", "wool:pink"},
     },
     nore_schems,
     {building_count = {10,15}}
@@ -60,7 +58,7 @@ local logcabin_schems = {
 smgv.make_settlement(
     "logcabin", "camp",
     {
-        ["default:junglewood"]  = smgv.replacements_wood_wall,
+        ["default:junglewood"] = smgv.replacements_wood_wall,
     },
     logcabin_schems,
     {building_count = {8,15}}
@@ -182,14 +180,12 @@ smgv.make_settlement(
         -- Building materials
         ['default:sandstone'] = medieval_materials, -- floor
         ['default:clay']      = medieval_materials, -- A (lower)
-        ['cottages:loam']      = medieval_materials, -- B (upper)
+        ['cottages:loam']     = medieval_materials, -- B (upper)
         ['default:cobble']    = smgv.replacements_stone_wall, -- cobble
     },
     medieval_schems,
     {building_count = {13,30}}
 )
-
-]]--
 
 --- Lumberjack ---------------------------------------
 -- requires cottages
@@ -228,7 +224,7 @@ smgv.make_settlement(
     {building_count = {5,15}}
 )
 
---[[
+
 
 --- Claytrader ---------------------------------------
 -- depends on cottages
@@ -249,15 +245,13 @@ local clt_schems = {
 
 smgv.make_settlement(
     "claytrader", "town",
-    {["default:brick"]={
-	'default:cobble',           'default:desert_cobble',          'default:mossycobble',
-	'default:stone',            'default:stone_block',            'default:stonebrick',
-	'default:sandstone',        'default:sandstone_block',        'default:sandstonebrick',
-	'default:desert_stone',     'default:desert_stone_block',     'default:desert_stonebrick',
-	'default:desert_sandstone', 'default:desert_sandstone_block', 'default:desert_sandstone_brick',
-	'default:silver_sandstone', 'default:silver_sandstone_block', 'default:silver_sandstone_brick',
-    'default:stone_bricks',     'default:desert_strone_bricks',
-	}},
+    {
+        ["default:brick"]            = smgv.replacements_brick_wall, -- wall 1
+        ["default:stone"]            = smgv.replacements_brick_wall, -- wall 2
+        ["stairs:slab_brick"]        = smgv.replacements_brick_slab, -- slab of wall 1
+        ["stairs:slab_wood"]         = smgv.replacements_wood_slab,  -- stairs down to pits
+        ["default:stone_with_coal"]  = {'default:sand', 'default:sandstone', 'default:clay'}, -- mining piles
+    },
     clt_schems,
     {building_count = {10,15}}
 )
@@ -279,10 +273,22 @@ local taoki_schems = {
 	make_schem("default_town_fountain",      1/3,1),
 }
 
+local taoki_materials = {
+		'default:wood', 'default:junglewood', 'default:pine_wood', 'default:acacia_wood', 'default:aspen_wood', 'mg:pinewood', 'mg:savannawood',
+		'default:clay', 'default:brick', 'default:sandstone', 
+		'default:stonebrick', 'default:desert_stonebrick','default:sandstonebrick', 'default:sandstone','default:stone','default:desert_stone',
+		'default:coalblock','default:steelblock','default:goldblock', 'default:bronzeblock', 'default:copperblock', 'wool:white',
+		'default:wood',
+		'default:silver_sandstone', 'default:silver_sandstone_block', 'default:silver_sandstone_brick',
+		'default:desert_sandstone_block', 'default:desert_sandstone_brick',
+}
+
 smgv.make_settlement(
     "taoki", "town",
-    {},
+    {
+        ["default:wood"]     = taoki_materials,
+        ["stairs:slab_wood"] = smgv.replacements_wood_slab,
+    },
     taoki_schems,
     {building_count = {15,30}}
 )
-]]--
