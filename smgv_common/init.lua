@@ -250,5 +250,3 @@ for _,rtype in pairs({"replacements_stone", "replacements_wood", "replacements_b
     smgv[rtype .. "_istair"] = table_new_prepend(smgv[rtype], "stairs:stair_inner_")
     smgv[rtype .. "_ostair"] = table_new_prepend(smgv[rtype], "stairs:stair_outer_")
 end
-
-minetest.log("error", smgv.replacements_wood_wall[2])
