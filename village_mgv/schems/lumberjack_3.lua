@@ -382,7 +382,7 @@ schematic = {
 		{name="air", prob=254, param2=0},
 		{name="default:ladder", prob=254, param2=4},
 		{name="air", prob=254, param2=0},
-		{name="air", prob=254, param2=3},
+		{name="doors:hidden", prob=254, param2=3},
 		{name="air", prob=254, param2=0},
 		{name="air", prob=254, param2=0},
 		{name="air", prob=254, param2=0},

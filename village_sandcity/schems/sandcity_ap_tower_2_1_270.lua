@@ -144,7 +144,7 @@ schematic = {
 
 		-- z=1, y=6
 		{name="air", prob=254, param2=0},
-		{name="default:torch", prob=254, param2=2},
+		{name="default:torch_wall", prob=254, param2=2},
 		{name="default:sandstone", prob=254, param2=0},
 		{name="stairs:slab_sandstone", prob=254, param2=0},
 		{name="stairs:slab_sandstone", prob=254, param2=0},
@@ -522,7 +522,7 @@ schematic = {
 		{name="air", prob=254, param2=0},
 		{name="default:ladder", prob=254, param2=5},
 		{name="air", prob=254, param2=0},
-		{name="default:torch", prob=254, param2=5},
+		{name="default:torch_wall", prob=254, param2=5},
 		{name="air", prob=254, param2=0},
 		{name="air", prob=254, param2=0},
 

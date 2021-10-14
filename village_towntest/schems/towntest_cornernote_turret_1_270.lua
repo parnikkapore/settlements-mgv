@@ -282,7 +282,7 @@ schematic = {
 		-- z=4, y=2
 		{name="default:stone", prob=254, param2=0},
 		{name="default:stone", prob=254, param2=0},
-		{name="air", prob=254, param2=0},
+		{name="doors:hidden", prob=254, param2=0},
 		{name="default:stone", prob=254, param2=0},
 		{name="default:stone", prob=254, param2=0},
 

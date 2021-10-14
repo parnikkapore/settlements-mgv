@@ -272,7 +272,7 @@ schematic = {
 		{name="air", prob=254, param2=0},
 		{name="air", prob=254, param2=0},
 		{name="air", prob=254, param2=0},
-		{name="default:torch", prob=254, param2=5},
+		{name="default:torch_wall", prob=254, param2=5},
 
 		-- z=5, y=3
 		{name="air", prob=254, param2=0},

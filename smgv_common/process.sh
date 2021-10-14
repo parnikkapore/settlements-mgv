@@ -1,6 +1,6 @@
 # Usage: process oldfile newfile
 function process() {
-    cat "$1" | sed 's/doors:door_.*_t_./air/g' | \
+    cat "$1" | sed 's/doors:door_.*_t_./doors:hidden/g' | \
     sed 's/doors:door_glass_b_1/doors:door_glass_a/g' | sed 's/doors:door_glass_b_2/doors:door_glass_b/g' | \
     sed 's/doors:door_obsidian_glass_b_1/doors:door_obsidian_glass_a/g' | sed 's/doors:door_obsidian_glass_b_2/doors:door_obsidian_glass_b/g' | \
     sed 's/doors:door_wood_b_1/doors:door_wood_a/g' | sed 's/doors:door_wood_b_2/doors:door_wood_b/g' | \

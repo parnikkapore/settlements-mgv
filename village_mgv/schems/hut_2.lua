@@ -335,7 +335,7 @@ schematic = {
 		-- z=3, y=2
 		{name="air", prob=254, param2=3},
 		{name="air", prob=254, param2=3},
-		{name="air", prob=254, param2=1},
+		{name="doors:hidden", prob=254, param2=1},
 		{name="cottages:wood_flat", prob=254, param2=21},
 		{name="cottages:wood_flat", prob=254, param2=21},
 		{name="cottages:wood_flat", prob=254, param2=21},

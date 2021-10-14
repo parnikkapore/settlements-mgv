@@ -381,7 +381,7 @@ schematic = {
 		{name="cottages:roof_straw", prob=254, param2=2},
 		{name="cottages:roof_straw", prob=254, param2=2},
 		{name="cottages:roof_connector_straw", prob=254, param2=2},
-		{name="air", prob=254, param2=0},
+		{name="doors:hidden", prob=254, param2=0},
 		{name="cottages:roof_connector_straw", prob=254, param2=2},
 
 		-- z=11, y=3

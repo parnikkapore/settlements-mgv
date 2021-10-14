@@ -107,7 +107,7 @@ schematic = {
 		{name="default:tree", prob=254, param2=0},
 		{name="cottages:glass_pane", prob=254, param2=0},
 		{name="default:wood", prob=254, param2=0},
-		{name="air", prob=254, param2=2},
+		{name="doors:hidden", prob=254, param2=2},
 		{name="default:tree", prob=254, param2=0},
 		{name="air", prob=254, param2=0},
 

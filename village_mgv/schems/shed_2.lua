@@ -69,7 +69,7 @@ schematic = {
 		-- z=1, y=2
 		{name="air", prob=254, param2=0},
 		{name="stairs:slab_wood", prob=254, param2=8},
-		{name="air", prob=254, param2=2},
+		{name="doors:hidden", prob=254, param2=2},
 		{name="stairs:slab_wood", prob=254, param2=8},
 		{name="air", prob=254, param2=0},
 

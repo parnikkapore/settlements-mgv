@@ -847,8 +847,8 @@ schematic = {
 		-- z=4, y=3
 		{name="default:clay", prob=254, param2=0},
 		{name="default:clay", prob=254, param2=0},
-		{name="air", prob=254, param2=0},
-		{name="air", prob=254, param2=0},
+		{name="doors:hidden", prob=254, param2=0},
+		{name="doors:hidden", prob=254, param2=0},
 		{name="default:cobble", prob=254, param2=0},
 		{name="default:cobble", prob=254, param2=0},
 		{name="default:cobble", prob=254, param2=0},
@@ -2275,8 +2275,8 @@ schematic = {
 		-- z=11, y=7
 		{name="default:torch_wall", prob=254, param2=1},
 		{name="default:clay", prob=254, param2=0},
-		{name="air", prob=254, param2=2},
-		{name="air", prob=254, param2=2},
+		{name="doors:hidden", prob=254, param2=2},
+		{name="doors:hidden", prob=254, param2=2},
 		{name="default:clay", prob=254, param2=0},
 		{name="default:clay", prob=254, param2=0},
 		{name="default:clay", prob=254, param2=0},

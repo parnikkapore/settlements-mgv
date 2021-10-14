@@ -127,7 +127,7 @@ schematic = {
 		{name="cottages:roof_connector_wood", prob=254, param2=1},
 		{name="cottages:glass_pane", prob=254, param2=0},
 		{name="default:wood", prob=254, param2=0},
-		{name="air", prob=254, param2=2},
+		{name="doors:hidden", prob=254, param2=2},
 		{name="cottages:roof_connector_wood", prob=254, param2=3},
 
 		-- z=2, y=3

@@ -301,7 +301,7 @@ schematic = {
 		-- z=3, y=2
 		{name="air", prob=254, param2=3},
 		{name="air", prob=254, param2=3},
-		{name="air", prob=254, param2=1},
+		{name="doors:hidden", prob=254, param2=1},
 		{name="air", prob=254, param2=0},
 		{name="air", prob=254, param2=1},
 		{name="air", prob=254, param2=0},

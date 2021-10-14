@@ -169,7 +169,7 @@ schematic = {
 		{name="cottages:roof_wood", prob=254, param2=1},
 		{name="air", prob=254, param2=0},
 		{name="cottages:shelf", prob=254, param2=2},
-		{name="air", prob=254, param2=0},
+		{name="doors:hidden", prob=254, param2=0},
 		{name="cottages:roof_wood", prob=254, param2=3},
 		{name="air", prob=254, param2=0},
 

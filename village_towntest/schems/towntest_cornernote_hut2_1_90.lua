@@ -22,7 +22,7 @@ schematic = {
 
 		-- z=0, y=2
 		{name="default:wood", prob=254, param2=0},
-		{name="air", prob=254, param2=0},
+		{name="doors:hidden", prob=254, param2=0},
 		{name="default:wood", prob=254, param2=0},
 
 		-- z=0, y=3
