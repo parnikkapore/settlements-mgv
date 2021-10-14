@@ -14,6 +14,7 @@ end
 
 -------------------------------------
 -- Node initialization
+
 local function fill_chest(pos)
 	-- fill chest
 	local inv = minetest.get_inventory( {type="node", pos=pos} )
@@ -90,18 +91,20 @@ function smgv.schematic_entry_maker(schem_path)
         return {
             name = schem,
             schematic = dofile(schem_path..schem..".lua"),
-            buffer = 3,
-            max_num = 0.2 * weight,
-            height_adjust = htadj or 0,
-            replace_nodes_optional = true, -- If true, default:cobble will be replaced with a random wall material
-            initialize_node = init_node,
-            platform_ignore_group_above = "group:leafdecay",
+            buffer = 3, -- buffer space around the building, footprint is treated as radius max(size.x, size.z) + buffer for spacing purposes
+            max_num = 0.2 * weight, -- This times the number of buildings in a settlement gives the maximum number of these buildings in a settlement.
+					                -- So for example, 0.1 means at most 1 in a 10-building settlement and 2 in a 20-building settlement.
+            height_adjust = htadj or 0, -- adjusts the y axis of where the schematic is built, to allow for "basement" stuff
+            replace_nodes_optional = true, -- Use the optional replacements table
+            initialize_node = init_node, -- allows additional post-creation actions to be executed on schematic nodes once they're constructed
+            platform_ignore_group_above = "group:leafdecay", -- If the node is in the space above the schematic being placed it will not be turned into air. (for leaves)
         }
     end
 end
 
 --------------------------------------------
 -- Settlement template
+
 function smgv.make_settlement(name, desc, repl, schems, settings)
     settings = settings or {}
     settings.building_count = settings.building_count or {}
@@ -184,3 +187,68 @@ function smgv.make_settlement(name, desc, repl, schems, settings)
 
     settlements.register_settlement(name, settlement_def)
 end
+
+--------------------------------------------
+-- Generic replacement tables
+
+local function table_new_append(t, str_to_append)
+    local n
+    for k,v in pairs(t) do
+        n[k] = v .. str_to_append
+    end
+    return n
+end
+
+local function table_new_prepend(t, str_to_prepend)
+    local n = {}
+    for k,v in pairs(t) do
+        n[k] = str_to_prepend .. v
+    end
+    return n
+end
+
+smgv.replacements_stone = {
+	'cobble',           'desert_cobble',
+	'stone',            'stone_block',            'stonebrick',
+	'sandstone',        'sandstone_block',        'sandstonebrick',
+	'desert_stone',     'desert_stone_block',     'desert_stonebrick',
+	'desert_sandstone', 'desert_sandstone_block', 'desert_sandstone_brick',
+	'silver_sandstone', 'silver_sandstone_block', 'silver_sandstone_brick',
+}
+
+smgv.replacements_wood = {
+	'wood', 'junglewood', 'pine_wood', 'acacia_wood', 'aspen_wood',
+	'wood', 'junglewood', 'pine_wood', 'acacia_wood', 'aspen_wood',
+	'wood', 'junglewood', 'pine_wood', 'acacia_wood', 'aspen_wood',
+	'wood', 'junglewood', 'pine_wood', 'acacia_wood', 'aspen_wood',
+	'wood', 'junglewood', 'pine_wood', 'acacia_wood', 'aspen_wood',
+
+	'cobble',           'desert_cobble',
+	'stone',            'stone_block',            'stonebrick',
+	'sandstone',        'sandstone_block',        'sandstonebrick',
+	'desert_stone',     'desert_stone_block',     'desert_stonebrick',
+	'desert_sandstone', 'desert_sandstone_block', 'desert_sandstone_brick',
+	'silver_sandstone', 'silver_sandstone_block', 'silver_sandstone_brick',
+}
+
+smgv.replacements_brick = {
+    'wood', 'junglewood', 'pine_wood', 'acacia_wood', 'aspen_wood',
+	'cobble',           'desert_cobble',
+	'stone',            'stone_block',            'stonebrick',
+	'sandstone',        'sandstone_block',        'sandstonebrick',
+	'desert_stone',     'desert_stone_block',     'desert_stonebrick',
+	'desert_sandstone', 'desert_sandstone_block', 'desert_sandstone_brick',
+	'silver_sandstone', 'silver_sandstone_block', 'silver_sandstone_brick',
+	'brick', 'brick', 'brick', 'brick', 'brick',
+	'clay', 'clay', 'loam', 'loam',
+}
+
+for _,rtype in pairs({"replacements_stone", "replacements_wood", "replacements_brick"}) do
+    smgv[rtype .. "_wall"] = table_new_prepend(smgv[rtype], "default:")
+    smgv[rtype .. "_slab"] = table_new_prepend(smgv[rtype], "stairs:slab_")
+    smgv[rtype .. "_stair"] = table_new_prepend(smgv[rtype], "stairs:stair_")
+    smgv[rtype .. "_istair"] = table_new_prepend(smgv[rtype], "stairs:stair_inner_")
+    smgv[rtype .. "_ostair"] = table_new_prepend(smgv[rtype], "stairs:stair_outer_")
+end
+
+minetest.log("error", smgv.replacements_wood_wall[2])

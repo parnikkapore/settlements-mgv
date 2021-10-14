@@ -26,10 +26,16 @@ make_schem("allmende_3_90",   3, -2),
 
 smgv.make_settlement(
     "nore", "town",
-    {},
+    {
+        ["default:stonebrick"]  = smgv.replacements_stone_wall,
+        ["default:wood"]        = smgv.replacements_wood_wall,
+        ["wool:grey"]           = {"wool:grey", "wool:white", "wool:dark_grey", "wool:cyan", "wool:pink"},
+    },
     nore_schems,
     {building_count = {10,15}}
 )
+
+----[[
 
 --- logcabin -----------------------------------------
 
@@ -250,3 +256,4 @@ smgv.make_settlement(
     taoki_schems,
     {building_count = {15,30}}
 )
+--]]--
