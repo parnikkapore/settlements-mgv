@@ -292,3 +292,48 @@ smgv.make_settlement(
     taoki_schems,
     {building_count = {15,30}}
 )
+
+--- Charcoal -----------------------------------------
+
+local charcoal_schems = {
+    make_schem("charachoal_hut",  1),
+	make_schem("charachoal_hill", 2),
+}
+
+smgv.make_settlement(
+    "charachoal", "town",
+    {},
+    charcoal_schems,
+    {building_count = {5,7}}
+)
+
+--- Tent ---------------------------------------------
+
+local tent_town_hall = make_schem("tent_open_big_3", 1/3)
+local tent_schems = {
+	make_schem("tent_tiny_1",                1),
+	make_schem("tent_tiny_2",                1),
+	make_schem("tent_big_1",                 1),           -- no sleeping place
+	make_schem("tent_big_2",                 1),
+	make_schem("tent_medium_1",              1/1.5),
+	make_schem("tent_medium_2",              1/1.5),
+	make_schem("tent_medium_3",              1/1.5),
+	make_schem("tent_medium_4",              1/1.5),
+	make_schem("tent_open_1",                1/3),
+	make_schem("tent_open_2",                1/3),
+	make_schem("tent_open_3",                1/3),
+	make_schem("tent_open_big_1",            1/3),
+	make_schem("tent_open_big_2",            1/3),
+	tent_town_hall,
+}
+
+smgv.make_settlement(
+    "tent", "tents",
+    {
+        ["glasspanes:wool_pane"] = {"cottages:wool_tent"},
+        ["default:gravel"]       = {"default:sand"},
+        ["default:fence_wood"]   = smgv.replacements_only_wood_fence,
+    },
+    tent_schems,
+    {building_count = {2,10}, central_schematics={tent_town_hall}, surface_placeholder="default:gravel"}
+)

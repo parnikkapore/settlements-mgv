@@ -136,7 +136,7 @@ function smgv.make_settlement(name, desc, repl, schems, settings)
         replacements_optional = repl or {},
 
         -- This node will be replaced with the surface material of the location the building is placed on.
-        replace_with_surface_material = "default:dirt_with_grass",
+        replace_with_surface_material = settings.surface_placeholder or "default:dirt_with_grass",
 
         -- Trees often interfere with surface detection. These nodes will be ignored when detecting surface level.
         ignore_surface_materials = {
@@ -243,10 +243,19 @@ smgv.replacements_brick = {
 	'clay', 'clay', 'loam', 'loam',
 }
 
+smgv.replacements_only_wood = {
+	'wood', 'junglewood', 'pine_wood', 'acacia_wood', 'aspen_wood',
+}
+
 for _,rtype in pairs({"replacements_stone", "replacements_wood", "replacements_brick"}) do
     smgv[rtype .. "_wall"] = table_new_prepend(smgv[rtype], "default:")
     smgv[rtype .. "_slab"] = table_new_prepend(smgv[rtype], "stairs:slab_")
     smgv[rtype .. "_stair"] = table_new_prepend(smgv[rtype], "stairs:stair_")
     smgv[rtype .. "_istair"] = table_new_prepend(smgv[rtype], "stairs:stair_inner_")
     smgv[rtype .. "_ostair"] = table_new_prepend(smgv[rtype], "stairs:stair_outer_")
+end
+
+for _,rtype in pairs({"replacements_only_wood"}) do
+    smgv[rtype .. "_wall"] = table_new_prepend(smgv[rtype], "default:")
+    smgv[rtype .. "_fence"] = table_new_prepend(smgv[rtype], "default:fence_")
 end
