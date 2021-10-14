@@ -1,1 +1,1 @@
-/home/parnikkapore/.minetest/mods/settlements_mgv/smgv_common/process.sh
+../../../smgv_common/process.sh
