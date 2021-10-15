@@ -155,6 +155,15 @@ local medieval_schems = {
 	make_schem("field_2",0.4, -2),
 	make_schem("field_3",0.4, -2),
 	make_schem("field_4",0.4, -2),
+    
+    make_schem("baking_house_1", 0.4),
+    make_schem("baking_house_2", 0.4),
+    make_schem("baking_house_3", 0.4),
+    make_schem("baking_house_4", 0.4),
+    
+    make_schem("house_medieval_fancy_1_90", 0.4),
+    make_schem("cow_shed_1_270",            0.4),
+    make_schem("shed_with_forge_v2_1_0",      1),
 }
 
 local medieval_materials = {
