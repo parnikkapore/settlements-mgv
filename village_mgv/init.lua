@@ -337,3 +337,22 @@ smgv.make_settlement(
     tent_schems,
     {building_count = {2,10}, central_schematics={tent_town_hall}, surface_placeholder="default:gravel"}
 )
+
+--- Chateau ------------------------------------------
+
+local chateau_town_hall = make_schem("chateau_without_garden", 1 , -1)
+local chateau_schems = {
+	--chateau_town_hall,
+    make_schem("well",                   10, -5), -- settlements is not happy with 1-building villages. So let's give 'em a water source.
+    make_schem("tree_place_1",           10, -5), -- Or a nice place to start their garden. Works as well.
+}
+
+smgv.make_settlement(
+    "chateau", "chateau",
+    {
+        ["default:wood"] = smgv.replacements_only_wood_wall,
+        ["default:tree"] = smgv.replacements_woodtrunk,
+    },
+    chateau_schems,
+    {building_count = {1,2}, central_schematics={chateau_town_hall}}
+)

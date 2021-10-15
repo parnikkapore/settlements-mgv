@@ -207,6 +207,8 @@ local function table_new_prepend(t, str_to_prepend)
     return n
 end
 
+-- General building materials
+
 smgv.replacements_stone = {
 	'cobble',           'desert_cobble',
 	'stone',            'stone_block',            'stonebrick',
@@ -243,10 +245,6 @@ smgv.replacements_brick = {
 	'clay', 'clay', 'loam', 'loam',
 }
 
-smgv.replacements_only_wood = {
-	'wood', 'junglewood', 'pine_wood', 'acacia_wood', 'aspen_wood',
-}
-
 for _,rtype in pairs({"replacements_stone", "replacements_wood", "replacements_brick"}) do
     smgv[rtype .. "_wall"] = table_new_prepend(smgv[rtype], "default:")
     smgv[rtype .. "_slab"] = table_new_prepend(smgv[rtype], "stairs:slab_")
@@ -255,7 +253,19 @@ for _,rtype in pairs({"replacements_stone", "replacements_wood", "replacements_b
     smgv[rtype .. "_ostair"] = table_new_prepend(smgv[rtype], "stairs:stair_outer_")
 end
 
+-- For fences and natural aesthetic lovers
+
+smgv.replacements_only_wood = {
+	'wood', 'junglewood', 'pine_wood', 'acacia_wood', 'aspen_wood',
+}
+
 for _,rtype in pairs({"replacements_only_wood"}) do
     smgv[rtype .. "_wall"] = table_new_prepend(smgv[rtype], "default:")
     smgv[rtype .. "_fence"] = table_new_prepend(smgv[rtype], "default:fence_")
 end
+
+-- And now for trunks
+
+smgv.replacements_woodtrunk = {
+    'default:tree', 'default:jungletree', 'default:pine_tree', 'default:acacia_tree', 'default:aspen_tree'
+}
