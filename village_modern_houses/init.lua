@@ -6,7 +6,7 @@ local schem_path = modpath.."/schems/"
 
 -------------------------------------
 
-local make_schem = smgv.schematic_entry_maker(schem_path)
+local make_schem = smgv.schematic_entry_maker(schem_path, 3)
 local schems = {
     make_schem("modern_house_a_5_270",  1),
     make_schem("modern_house_facade",   1),
@@ -19,6 +19,9 @@ smgv.make_settlement(
 		["default:wood"] = {
 			'default:wood', 'default:junglewood',
 		},
+		["wool:dark_green"] = {
+            'wool:blue', 'wool:brown', 'wool:cyan', 'wool:dark_green', 'wool:dark_grey', 
+        },
 	},
     schems,
     {building_count = {15,30}})

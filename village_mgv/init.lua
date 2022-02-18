@@ -187,10 +187,12 @@ smgv.make_settlement(
         ['junglegrass:short'] =     'air',
         ['poisonivy:seedling'] =    'air',
         -- Building materials
-        ['default:sandstone'] = medieval_materials, -- floor
-        ['default:clay']      = medieval_materials, -- A (lower)
-        ['cottages:loam']     = medieval_materials, -- B (upper)
-        ['default:cobble']    = smgv.replacements_stone_wall, -- cobble
+        ['default:sandstone']       = medieval_materials, -- floor
+        ['default:clay']            = medieval_materials, -- A (lower)
+        ['cottages:loam']           = medieval_materials, -- B (upper)
+        ['default:cobble']          = smgv.replacements_stone_wall, -- cobble
+        ['moreblocks:slab_cobble']  = smgv.replacements_stone_slab,
+        ['cottages:chest_private']  = 'default:chest',
     },
     medieval_schems,
     {building_count = {13,30}}
@@ -228,7 +230,11 @@ local ljack_schems = {
 
 smgv.make_settlement(
     "lumberjack", "camp",
-    {},
+    {
+        -- We don't have the Bell mod
+        ['bell:bell'] =             'default:goldblock',
+        ['cottages:chest_private']  = 'default:chest',
+    },
     ljack_schems,
     {building_count = {5,15}}
 )
@@ -283,7 +289,7 @@ local taoki_schems = {
 }
 
 local taoki_materials = {
-		'default:wood', 'default:junglewood', 'default:pine_wood', 'default:acacia_wood', 'default:aspen_wood', 'mg:pinewood', 'mg:savannawood',
+		'default:wood', 'default:junglewood', 'default:pine_wood', 'default:acacia_wood', 'default:aspen_wood',
 		'default:clay', 'default:brick', 'default:sandstone', 
 		'default:stonebrick', 'default:desert_stonebrick','default:sandstonebrick', 'default:sandstone','default:stone','default:desert_stone',
 		'default:coalblock','default:steelblock','default:goldblock', 'default:bronzeblock', 'default:copperblock', 'wool:white',

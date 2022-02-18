@@ -46,4 +46,7 @@ smgv.make_settlement(
             'stairs:stair_stone', 'stairs:stair_cobble',
         },
 	},
-    schematic_table)
+    schematic_table,
+    {
+        building_count={25,30},
+    })

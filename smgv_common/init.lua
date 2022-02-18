@@ -86,14 +86,14 @@ end
 --------------------------------------------
 -- Schematics
 
-function smgv.schematic_entry_maker(schem_path)
+function smgv.schematic_entry_maker(schem_path, n_schems)
     return function (schem, weight, htadj)
         return {
             name = schem,
             schematic = dofile(schem_path..schem..".lua"),
             buffer = 3, -- buffer space around the building, footprint is treated as radius max(size.x, size.z) + buffer for spacing purposes
-            max_num = 0.2 * weight, -- This times the number of buildings in a settlement gives the maximum number of these buildings in a settlement.
-					                -- So for example, 0.1 means at most 1 in a 10-building settlement and 2 in a 20-building settlement.
+            max_num = weight / (n_schems or 5), -- This times the number of buildings in a settlement gives the maximum number of these buildings in a settlement.
+                                                -- So for example, 0.1 means at most 1 in a 10-building settlement and 2 in a 20-building settlement.
             height_adjust = htadj or 0, -- adjusts the y axis of where the schematic is built, to allow for "basement" stuff
             replace_nodes_optional = true, -- Use the optional replacements table
             initialize_node = init_node, -- allows additional post-creation actions to be executed on schematic nodes once they're constructed
@@ -113,7 +113,7 @@ function smgv.make_settlement(name, desc, repl, schems, settings)
         description = S(desc or "village"), -- a general name for this kind of settlement
 
         -- this settlement will be placed on nodes with this surface material type.
-        surface_materials = {
+        surface_materials = settings.surface_materials or {
             "default:dirt",
             "default:dirt_with_grass",
             "default:dry_dirt_with_dry_grass",
@@ -155,8 +155,8 @@ function smgv.make_settlement(name, desc, repl, schems, settings)
             "default:blueberry_bush_leaves",
         },
 
-        platform_shallow = "default:dirt",
-        platform_deep = "default:stone",
+        platform_shallow = settings.platform_shallow or "default:dirt",
+        platform_deep = settings.platform_deep or "default:stone",
         path_material = settings.path_material or "default:gravel",
 
         schematics = schems,
